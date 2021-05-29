@@ -141,7 +141,7 @@ function imagDocMarkup(images) {
 const imageGallery = imagDocMarkup(imagesDocList);
 imagesContainer.insertAdjacentHTML("afterbegin", imageGallery);
 
-const modalDoc = document.querySelector(".js-gallery");
+const modalDoc = document.querySelector("div.lightbox");
 imagesContainer.addEventListener("click", imagesClick);
 
 function imagesClick(event) {
@@ -154,13 +154,13 @@ function imagesClick(event) {
 
   imageOpenModal.src = event.target.dataset.source;
 }
-const closeModal = document.querySelector(
-  'button[data-action="close-lightbox"]'
-);
-closeModal.addEventListener("click", (event) => {
-  modalDoc.classList.remove("is-open");
+const closeModal = document.querySelector(".lightbox__button");
+closeModal.addEventListener("click", OnCloseModal);
+
+function OnCloseModal(event) {
+  modalBox.classList.remove("is-open");
   event.target.dataset.source = "";
-});
+}
 
 /* const lightboxDoc = document.querySelector(".lightbox__image");
 const arrayImages = [];
