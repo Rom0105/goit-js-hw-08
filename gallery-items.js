@@ -29,7 +29,7 @@ const modalDoc = document.querySelector("div.lightbox");
 imagesContainer.addEventListener("click", imagesClick);
 
 function imagesClick(event) {
-  event.imagesDefault();
+  event.preventDefault();
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
@@ -42,6 +42,6 @@ const closeModal = document.querySelector(".lightbox__button");
 closeModal.addEventListener("click", OnCloseModal);
 
 function OnCloseModal(event) {
-  modalBox.classList.remove("is-open");
+  modalDoc.classList.remove("is-open");
   event.target.dataset.source = "";
 }
